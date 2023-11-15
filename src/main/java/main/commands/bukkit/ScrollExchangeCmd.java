@@ -40,7 +40,7 @@ public class ScrollExchangeCmd extends PlayerBaseCmd {
         logger.info(msg);
         return;
       }
-      
+
       final String sourceTier = args[0].toString().toLowerCase();
       final int sourceMaxAmount = Integer.parseInt(args.length > 1 ? args[1] : "64");
       final int scrollValue = getScrollTierValue(sourceTier);
@@ -64,7 +64,9 @@ public class ScrollExchangeCmd extends PlayerBaseCmd {
 
       int exchangeCount = 0;
       final ItemStack[] playerItems = player.getInventory().getContents();
-      for (ItemStack itemStack : playerItems) {
+      
+      for (int i = 0; i < playerItems.length; i++) {
+        ItemStack itemStack = playerItems[i];
         if ((exchangeCount == sourceMaxAmount)) {
           break;
         }
